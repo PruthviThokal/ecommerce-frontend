@@ -20,23 +20,22 @@ const Header = () => {
 
   return (
     <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
-      <Item key="home" icon={<AppstoreOutlined />}>
+      <Menu.Item key="home" icon={<AppstoreOutlined />}>
         <Link to="/">Home</Link>
-      </Item>
-
-      <Item key="register" icon={<UserAddOutlined />} className="float-right">
-        <Link to="/register">Register</Link>
-      </Item>
-
-      <Item key="login" icon={<UserOutlined />} className="float-right">
-        <Link to="/login">Login</Link>
-      </Item>
+      </Menu.Item>
 
       <SubMenu key="SubMenu" icon={<SettingOutlined />} title="Username">
-        <Item key="setting:1">Option 1</Item>
-        <Item key="setting:2">Option 2</Item>
-        <Item icon={<LogoutOutlined />}>Logout</Item>
+        <Menu.Item key="setting:1">Option 1</Menu.Item>
+        <Menu.Item key="setting:2">Option 2</Menu.Item>
+        <Menu.Item icon={<LogoutOutlined />}>Logout</Menu.Item>
       </SubMenu>
+
+      <Menu.Item key="register" icon={<UserAddOutlined />} className="ml-auto">
+        <Link to="/register">Register</Link>
+      </Menu.Item>
+      <Menu.Item key="login" icon={<UserOutlined />} className="ml-5">
+        <Link to="/login">Login</Link>
+      </Menu.Item>
     </Menu>
   );
 };
