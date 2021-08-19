@@ -30,10 +30,14 @@ const Header = () => {
         <Menu.Item icon={<LogoutOutlined />}>Logout</Menu.Item>
       </SubMenu>
 
-      <Menu.Item key="register" icon={<UserAddOutlined />} className="ml-auto">
+      <Menu.Item
+        key="register"
+        icon={<UserAddOutlined />}
+        className="float-right"
+      >
         <Link to="/register">Register</Link>
       </Menu.Item>
-      <Menu.Item key="login" icon={<UserOutlined />} className="ml-5">
+      <Menu.Item key="login" icon={<UserOutlined />} className="float-right">
         <Link to="/login">Login</Link>
       </Menu.Item>
     </Menu>
