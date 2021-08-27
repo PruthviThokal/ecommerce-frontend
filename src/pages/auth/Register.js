@@ -1,19 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./register.css";
 import { auth } from "../../firebase";
 import { toast } from "react-toastify";
+import { LoadingOutlined } from "@ant-design/icons";
+import { useSelector } from "react-redux";
 
-const Register = () => {
+const Register = ({ history }) => {
   const [email, setEmail] = useState("");
+
+  const { user } = useSelector((state) => ({ ...state }));
+  useEffect(() => {
+    if (user && user.token) {
+      history.push("/");
+    }
+  }, [user]);
 
   //when form submit handleSubmit function invoke
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const config = {
       url: process.env.REACT_APP_REGISTER_REDIRECT_URL,
       handleCodeInApp: true,
     };
     await auth.sendSignInLinkToEmail(email, config);
+
     toast.success(
       `Email was send to ${email}. 
       Please click the link to complete your registration.`
@@ -33,6 +44,7 @@ const Register = () => {
         className="form-control form-control-inline"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        placeholder="Enter your email"
         autoFocus
       />
       <br />
