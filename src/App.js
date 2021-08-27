@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Header from "./components/Header";
 import RegisterComplete from "./pages/auth/RegisterComplete";
 
+//Main app
 function App() {
   return (
     <>
